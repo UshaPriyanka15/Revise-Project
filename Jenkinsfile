@@ -23,10 +23,10 @@ pipeline {
             steps {
                 script {
                     // Stop and remove existing container if it exists
-                    sh 'docker rm -f my-httpd-container || true'
+                    sh 'docker rm -f httpd-image || true'
                     
                     // Run the new container
-                    sh 'docker run -d -p 80:80 --name my-httpd-container my-httpd-app'
+                    sh 'docker run -d -p 80:80 --name httpd-image my-httpd-app'
                 }
             }
         }
@@ -34,7 +34,7 @@ pipeline {
         stage('Verify') {
             steps {
                 // Simple verification that container is running
-                sh 'docker ps | grep my-httpd-container'
+                sh 'docker ps | grep httpd-image'
             }
         }
     }
