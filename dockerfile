@@ -4,7 +4,7 @@ RUN rm -rf /usr/share/httpd/html/*
 
 # Copy your website files to the Apache document root
 # Replace 'your-website' with the actual path to your website files
-COPY  spering-html .
+COPY  spering-html . /user/share/httpd/html/
 
 # Expose the default HTTP port
 EXPOSE 80
